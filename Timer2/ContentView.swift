@@ -20,11 +20,21 @@ struct ContentView: View {
                 //scheduledTimer()メソッドを使用
                 timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
                     self.count += 1
-                    if count == 5 {
+                    switch count {
+                    case 3:
+                        soundPlayer.cymbalPlay()
+                    case 5:
+                        soundPlayer.cymbalPlay()
                         timer?.invalidate()
                         count = 0
-                        soundPlayer.cymbalPlay()
+                    default: break
+                        
                     }
+                    //                    if count == 5 {
+                    //                        timer?.invalidate()
+                    //                        count = 0
+                    //                        soundPlayer.cymbalPlay()
+                    //                    }
                 }
             }
         }
